@@ -89,21 +89,12 @@
     }
 
     /* main circle (photo) */
-    .main-circle {
-      width: 170px;
-      height: 170px;
-      border-radius: 50%;
-      overflow: hidden;
-      position: absolute;
-      left: calc(50% - 85px - 30px);
-      top: 50%;
-      transform: translateY(-50%);
-      border: 3px solid rgba(255, 255, 255, 0.5);
-      box-shadow: 0 0 35px rgba(255, 255, 255, 0.3);
-      z-index: 2;
-      background: rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s ease;
-    }
+    ..main-circle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
 
     .main-circle img {
       width: 100%;
@@ -113,28 +104,23 @@
 
     /* orbiting video circle */
     .video-circle {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      overflow: hidden;
-      position: absolute;
-      left: calc(50% - 50px + 35px);
-      top: 50%;
-      transform: translateY(-50%);
-      border: 3px solid #b77cff;
-      box-shadow: 0 0 30px rgba(147, 112, 219, 0.6);
-      z-index: 3;
-      animation: orbitRotate 9s infinite linear, floatGlow 3s ease-in-out infinite;
-    }
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  transform-origin: center;
+  animation: orbitFix 8s linear infinite;
+}
 
-    @keyframes orbitRotate {
-      0% {
-        transform: translateY(-50%) rotate(0deg) translateX(55px) rotate(0deg);
-      }
-      100% {
-        transform: translateY(-50%) rotate(360deg) translateX(55px) rotate(-360deg);
-      }
-    }
+@keyframes orbitFix {
+  0% {
+    transform: rotate(0deg) translateX(90px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(90px) rotate(-360deg);
+  }
+}
 
     @keyframes floatGlow {
       0%, 100% { filter: brightness(1) drop-shadow(0 0 5px #b77cff); }
@@ -302,12 +288,18 @@
 
     /* ========== NEW BUTTON CONTAINER (hybrid design) ========== */
     .double-button-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      margin: 30px 0 20px;
-    }
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 25px 0;
+  width: 100%;
+}
+
+.btn-container,
+.button-svg-wrapper {
+  width: 100% !important;
+  max-width: 420px;
+}
 
     /* Stellar button style (original request) */
     .btn-container {
@@ -327,20 +319,7 @@
       transform: scale(0.98);
     }
 
-    .btn-container::after {
-      content: "";
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      left: 0;
-      top: 18px;
-      z-index: -1;
-      background: linear-gradient(80deg, #ffcbf2, #ec38bc, #7303c0, #03001e);
-      filter: blur(25px);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      border-radius: 20px;
-    }
+  
 
     .btn-container:hover::after {
       opacity: 1;
