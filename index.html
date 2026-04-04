@@ -2,25 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>QB Agency | Elite Marketing & Advertising</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>QB Agency | Luxury Marketing & Advertising</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    /* ---------- RESET + BASE ---------- */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
     }
-
+    html, body {
+      height: 100%;
+    }
     body {
       background: url('https://files.123freevectors.com/wp-content/original/119562-purple-and-white-abstract-background-design.jpg') center/cover fixed;
       color: #fff;
       position: relative;
       overflow-x: hidden;
-      font-family: 'Montserrat', sans-serif;
     }
-
     body::before {
       content: '';
       position: absolute;
@@ -29,488 +31,448 @@
       z-index: -1;
     }
 
-    /* header */
+    /* ---------- HEADER ---------- */
     header {
       width: 100%;
-      padding: 12px 24px;
+      padding: 12px 15px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(255, 255, 255, 0.06);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-      position: relative;
-      z-index: 10;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(7px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
-
     .logo {
-      font-size: 1.7rem;
+      font-size: 1.6rem;
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: 1px;
       font-family: 'Cinzel', serif;
       display: flex;
-      gap: 6px;
+      align-items: center;
+      gap: 5px;
     }
-
     .logo .qb {
-      color: #e0d6ff;
-      text-shadow: 0 0 12px rgba(192, 192, 255, 0.6);
+      color: #c0c0c0;
+      text-shadow: 0 0 10px rgba(192, 192, 192, 0.5);
     }
-
     .logo .agency {
-      color: #b77cff;
-      text-shadow: 0 0 10px rgba(147, 112, 219, 0.7);
+      color: #9370db;
+      text-shadow: 0 0 10px rgba(147, 112, 219, 0.5);
     }
 
-    /* main container */
+    /* ---------- HERO / PROFILE ---------- */
     .container {
-      max-width: 1250px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 10px 20px;
-      position: relative;
-      z-index: 2;
+      padding: 5px 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-
-    /* PROFILE SECTION with orbiting video */
     .hero-section {
       text-align: center;
-      margin: 8px 0 5px;
+      margin: 5px 0 10px;
     }
-
+    
+    /* Profile overlapping circles */
     .profile-display {
       position: relative;
-      width: 300px;
-      height: 200px;
-      margin: 5px auto 20px;
+      width: 280px;
+      height: 180px;
+      margin: 5px auto 15px;
       display: flex;
       justify-content: center;
       align-items: center;
     }
-
-    /* main circle (photo) */
-    ..main-circle {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
+    .main-circle {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      overflow: hidden;
+      position: absolute;
+      left: calc(50% - 90px - 35px);
+      top: 50%;
+      transform: translateY(-50%);
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+      z-index: 2;
+      background: rgba(0, 0, 0, 0.1);
+    }
     .main-circle img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      filter: brightness(1.05) contrast(1.05);
     }
-
-    /* orbiting video circle */
     .video-circle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100px;
-  height: 100px;
-  transform-origin: center;
-  animation: orbitFix 8s linear infinite;
-}
-
-@keyframes orbitFix {
-  0% {
-    transform: rotate(0deg) translateX(90px) rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg) translateX(90px) rotate(-360deg);
-  }
-}
-
-    @keyframes floatGlow {
-      0%, 100% { filter: brightness(1) drop-shadow(0 0 5px #b77cff); }
-      50% { filter: brightness(1.1) drop-shadow(0 0 18px #d9a7ff); }
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      position: absolute;
+      left: calc(50% - 50px + 35px);
+      top: 50%;
+      transform: translateY(-50%);
+      border: 3px solid rgba(147, 112, 219, 0.5);
+      box-shadow: 0 0 25px rgba(147, 112, 219, 0.4);
+      z-index: 3;
+      animation: float 4s ease-in-out infinite;
     }
-
+    @keyframes float {
+      0%, 100% { transform: translateY(-50%) scale(1); }
+      50% { transform: translateY(-50%) scale(1.05); }
+    }
     .video-circle video {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 50%;
     }
-
+    
+    /* Gradient animated text */
     .agency-gradient-text {
       font-family: 'Cinzel', serif;
-      font-size: 2.4rem;
+      font-size: 2.2rem;
       font-weight: 900;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
       margin: 15px 0 5px;
-      background: linear-gradient(90deg, #ffffff, #cba6ff, #9b59b6, #ffffff, #cba6ff);
-      background-size: 350% auto;
+      background: linear-gradient(90deg, #000000 0%, #000000 25%, #9370db 50%, #ffffff 75%, #000000 100%);
+      background-size: 300% auto;
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: gradientFlow 7s linear infinite;
+      animation: gradient-flow 8s linear infinite;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     }
-
-    @keyframes gradientFlow {
+    @keyframes gradient-flow {
       0% { background-position: 0% center; }
-      100% { background-position: 350% center; }
+      100% { background-position: 300% center; }
     }
 
-    /* cards */
+    /* ---------- CARDS ---------- */
     .cards-section {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 18px;
-      margin: 20px 0;
+      gap: 10px;
+      margin: 10px 0;
+      width: 100%;
     }
-
     .card {
       position: relative;
-      width: 310px;
-      height: 210px;
-      border-radius: 20px;
+      width: 300px;
+      height: 200px;
+      border-radius: 12px;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2), -10px -10px 30px rgba(255, 255, 255, 0.05);
       background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-      transition: 0.3s;
+      backdrop-filter: blur(8px);
+      padding: 10px;
+      text-align: center;
+      opacity: 0.98;
     }
-
     .card-bg {
       position: absolute;
-      inset: 2px;
-      background: rgba(255, 255, 255, 0.92);
-      border-radius: 18px;
-      z-index: 1;
+      inset: 3px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 8px;
+      outline: 1px solid white;
+      z-index: 2;
     }
-
     .card-blob {
       position: absolute;
-      width: 130px;
-      height: 130px;
-      background: rgba(147, 112, 219, 0.2);
-      filter: blur(25px);
+      z-index: 1;
+      top: 50%;
+      left: 50%;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
-      animation: blobMove 12s infinite alternate;
-      z-index: 0;
+      background: rgba(8, 8, 8, 0.1);
+      filter: blur(10px);
+      animation: blob-bounce 5s infinite ease;
     }
-
-    @keyframes blobMove {
-      0% { transform: translate(-30%, -30%); }
-      100% { transform: translate(70%, 70%); }
+    @keyframes blob-bounce {
+      0% { transform: translate(-100%, -100%) translate3d(0, 0, 0); }
+      25% { transform: translate(-100%, -100%) translate3d(100%, 0, 0); }
+      50% { transform: translate(-100%, -100%) translate3d(100%, 100%, 0); }
+      75% { transform: translate(-100%, -100%) translate3d(0, 100%, 0); }
+      100% { transform: translate(-100%, -100%) translate3d(0, 0, 0); }
     }
-
     .card-content {
       position: relative;
       z-index: 3;
       color: #1e1e2a;
-      padding: 12px;
-      text-align: center;
+      padding: 8px;
+      font-size: 0.85rem;
+      line-height: 1.4;
     }
-
     .card h3 {
+      color: #222;
+      margin-bottom: 5px;
+      font-size: 1.1rem;
+      font-weight: 700;
       font-family: 'Playfair Display', serif;
-      font-weight: 800;
-      color: #2c1b4e;
-      margin-bottom: 6px;
     }
-
     .card ul {
       list-style: none;
       text-align: left;
-      display: inline-block;
-      margin-top: 6px;
+      margin-top: 5px;
     }
-
     .card li {
-      font-size: 0.8rem;
-      margin-bottom: 5px;
+      margin-bottom: 4px;
       display: flex;
       align-items: center;
+      font-size: 0.8rem;
     }
-
     .card li::before {
       content: "✦";
-      margin-right: 8px;
-      color: #9b59b6;
-    }
-
-    .warning-message {
-      background: rgba(255, 60, 60, 0.2);
-      backdrop-filter: blur(8px);
-      border-radius: 40px;
-      padding: 8px 16px;
+      margin-right: 6px;
+      color: #9370db;
+      font-weight: bold;
       font-size: 0.7rem;
-      text-align: center;
-      margin: 12px auto;
-      width: fit-content;
-      border: 1px solid rgba(255, 80, 80, 0.4);
     }
-
+    .gradient-line {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #9370db, transparent);
+      margin: 5px 0;
+    }
+    .services-card {
+      width: 300px;
+      height: 200px;
+      order: 3;
+    }
     .branding-card {
       width: 100%;
-      max-width: 500px;
-      margin: 15px auto;
-      height: 52px;
-      background: rgba(230, 225, 245, 0.5);
-      backdrop-filter: blur(12px);
-      border-radius: 40px;
+      height: 50px;
+      background: rgba(223, 225, 235, 0.5);
       overflow: hidden;
-      box-shadow: inset 0 2px 6px rgba(0,0,0,0.05), 0 8px 20px rgba(0,0,0,0.1);
+      border-radius: 15px;
+      box-shadow: inset 0 30px 20px rgba(34, 34, 34, 0.1), inset 0 -30px 20px rgba(255, 255, 255, 0.8), 1px 1px 2px rgba(255, 255, 255, 0.6), -1px -1px 2px rgba(68, 68, 68, 0.2);
+      margin: 10px 0;
     }
-
     .branding-content {
+      position: relative;
       display: flex;
+      justify-content: space-between;
+      align-items: center;
       width: 300%;
       height: 100%;
-      animation: slideBrand 8s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transform: translateX(0);
+      animation: anim 6s infinite cubic-bezier(0.68, -0.55, 0.265, 1.55);
     }
-
     .branding-word {
       width: 33.33%;
       text-align: center;
-      font-weight: 700;
+      color: #1f1f2b;
+      font-size: 1.2rem;
+      font-weight: 600;
       font-family: 'Cinzel', serif;
-      font-size: 1.3rem;
-      color: #2c1b4e;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      text-shadow: 1px 1px 2px rgba(68, 68, 68, 0.2);
     }
-
-    @keyframes slideBrand {
+    @keyframes anim {
       0% { transform: translateX(0); }
-      25% { transform: translateX(0); }
-      35% { transform: translateX(-33.33%); }
+      20% { transform: translateX(0); }
+      30% { transform: translateX(-33.33%); }
       70% { transform: translateX(-33.33%); }
       80% { transform: translateX(-66.66%); }
       100% { transform: translateX(-66.66%); }
     }
 
-    /* ========== NEW BUTTON CONTAINER (hybrid design) ========== */
-    .double-button-row {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin: 25px 0;
-  width: 100%;
-}
-
-.btn-container,
-.button-svg-wrapper {
-  width: 100% !important;
-  max-width: 420px;
-}
-
-    /* Stellar button style (original request) */
-    .btn-container {
-      width: 240px;
-      height: 68px;
-      position: relative;
-      overflow: visible;
+    /* ---------- ORIGINAL BUTTONS (TG) RETAINED ---------- */
+    .buttons-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin: 20px 0;
+    }
+    .Btn-container {
+      width: fit-content;
+      height: fit-content;
+      border: none;
+      background: rgba(235, 235, 235, 0.9);
+      padding: 12px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(225, 225, 225, 0.5);
+      transition: 0.2s;
       cursor: pointer;
-      transition: transform 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
     }
-
-    .btn-container:hover {
-      transform: scale(1.05);
-    }
-
-    .btn-container:active {
-      transform: scale(0.98);
-    }
-
-  
-
-    .btn-container:hover::after {
-      opacity: 1;
-    }
-
-    button#space-btn {
-      width: 100%;
+    .inner-wrapper {
+      width: fit-content;
       height: 100%;
-      position: relative;
-      overflow: hidden;
-      border: 0;
-      outline: 0;
-      border-radius: 20px;
-      background: linear-gradient(95deg, #03001e, #7303c0, #ec38bc, #ffcbf2);
-      background-size: 200% auto;
-      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-      transition: all 0.2s;
+      background: rgba(247, 247, 247, 0.95);
+      border-radius: 10px;
+      padding: 8px 16px;
+      box-shadow: 0 4px 10px rgba(211, 211, 211, 0.5);
+      gap: 15px;
+      transition: 0.5s;
     }
-
-    button#space-btn span {
-      color: white;
-      font-weight: 800;
-      font-size: 1rem;
-      letter-spacing: 1px;
-      font-family: 'Montserrat', sans-serif;
-      z-index: 3;
+    .text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
-
-    .telegram-icon-svg {
-      width: 24px;
-      height: 24px;
-      fill: white;
-      transition: transform 0.2s;
-      z-index: 3;
+    .text p {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #646464;
     }
-
-    button#space-btn div.star {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background-color: white;
+    .text .pro {
+      background: #000;
+      color: #fff;
+      padding: 3px 6px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+    .icon {
+      width: 40px;
+      height: 40px;
+      background: #fff;
       border-radius: 50%;
-      animation: blinkStar 2s infinite ease-in-out;
-      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: rotate(360deg);
+      transition: 0.2s;
+    }
+    .icon svg {
+      width: 22px;
+    }
+    .Btn-container:active {
+      transform: scale(1);
+    }
+    .Btn-container:active .inner-wrapper {
+      transform: scale(0.97);
+    }
+    .Btn-container:hover .icon {
+      transform: rotate(0deg);
     }
 
-    @keyframes blinkStar {
-      0% { opacity: 0; transform: scale(0.5); box-shadow: 0 0 0px white; }
-      50% { opacity: 1; transform: scale(1); box-shadow: 0 0 10px 2px white; }
-      100% { opacity: 0; transform: scale(0.5); box-shadow: 0 0 0px white; }
+    /* ---------- NEW LUXURY BUTTON (ABOUT) WITH CUSTOM SVG ANIMATION ---------- */
+    .about-btn-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 30px 0 20px;
     }
-
-    button#space-btn div.shooting-star {
-      width: 70px;
-      height: 2px;
-      position: absolute;
-      background: linear-gradient(90deg, #ffffffff, #ffffff00);
-      border-radius: 50%;
-      transform: rotate(-35deg);
-      opacity: 0;
-    }
-
-    @keyframes fallingStar1 {
-      0% { top: -10px; left: 200px; opacity: 1; }
-      100% { top: 200px; left: -30px; opacity: 1; }
-    }
-    @keyframes fallingStar2 {
-      0% { top: -10px; left: 140px; opacity: 1; }
-      100% { top: 200px; left: -80px; opacity: 1; }
-    }
-    @keyframes fallingStar3 {
-      0% { top: -10px; left: 80px; opacity: 1; }
-      100% { top: 200px; left: -130px; opacity: 1; }
-    }
-    @keyframes fallingStar4 {
-      0% { top: -10px; left: 20px; opacity: 1; }
-      100% { top: 200px; left: -190px; opacity: 1; }
-    }
-
-    button#space-btn div.shooting-star-1 { animation: fallingStar1 4s 6s infinite; }
-    button#space-btn div.shooting-star-2 { animation: fallingStar2 2.5s 10s infinite; }
-    button#space-btn div.shooting-star-3 { animation: fallingStar3 6s 18s infinite; }
-    button#space-btn div.shooting-star-4 { animation: fallingStar4 3.8s 7s infinite; }
-
-    /* Modern SVG button (about) */
-    .button-svg-wrapper {
-      position: relative;
-      width: 220px;
-      height: 64px;
-      cursor: pointer;
+    .about-btn {
+      width: 100%;
+      max-width: 420px;
+      height: 75px;
+      margin: 0 auto;
       border: none;
       background: none;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.3s ease;
+      outline: none;
     }
-
-    .button-svg-wrapper svg {
+    .about-btn svg {
       width: 100%;
       height: 100%;
-      overflow: visible;
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
     }
-
-    .border-svg {
-      width: 100%;
-      height: 100%;
+    /* BORDER ANIMATION (glowing border) */
+    .border {
+      fill: rgba(0, 0, 0, 0.25);
       stroke: #ffffffcc;
-      stroke-width: 2px;
-      fill: rgba(0, 0, 0, 0.2);
-      rx: 1.2em;
-      ry: 1.2em;
+      stroke-width: 2;
+      rx: 22;
       stroke-dasharray: 30;
-      animation: dashMove 6s linear infinite;
-      transition: fill 0.3s;
+      animation: borderMove 6s linear infinite;
     }
-
-    .button-svg-wrapper:hover .border-svg {
-      fill: rgba(255, 255, 255, 0.15);
-      stroke: #cba6ff;
-    }
-
-    @keyframes dashMove {
+    @keyframes borderMove {
       0% { stroke-dashoffset: 120; }
       100% { stroke-dashoffset: 0; }
     }
-
-    .loading-svg {
-      stroke: #b77cff;
-      stroke-width: 2.5px;
+    /* LOADER (progress line) */
+    .loader {
       fill: none;
-      rx: 1.2em;
-      ry: 1.2em;
+      stroke: #b77cff;
+      stroke-width: 2.5;
+      rx: 22;
       stroke-dasharray: 0 100;
-      transition: stroke 0.1s;
+      transition: stroke-dasharray 0.3s ease;
     }
-
-    .button-svg-wrapper:focus .loading-svg {
-      transition: stroke-dasharray 8s 0.3s ease-out;
-      stroke-dasharray: 100 0;
-      stroke: #80ffaa;
-    }
-
-    .txt-upload {
+    /* Button text styling */
+    .about-btn span {
       position: absolute;
       inset: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 700;
-      font-size: 0.95rem;
+      color: #fff;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      font-size: 15px;
       font-family: 'Cinzel', serif;
-      color: white;
-      letter-spacing: 0.5px;
-      background: transparent;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+      z-index: 2;
+      transition: opacity 0.2s ease;
       pointer-events: none;
-      gap: 6px;
     }
-
-    .button-svg-wrapper:focus .txt-upload {
-      opacity: 0;
-      transition: opacity 0.2s 7.5s;
+    /* DONE ICON (cloud + check) */
+    .done-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
-
-    .done-cloud, .done-check {
+    .cloud, .check {
       fill: none;
-      stroke: white;
-      stroke-width: 2;
+      stroke: #fff;
+      stroke-width: 2.2;
       stroke-dasharray: 0 100;
+      transition: stroke-dasharray 0.2s ease;
     }
-
-    .button-svg-wrapper:focus .done-cloud {
-      transition: stroke-dasharray 0.8s 8.2s ease-out;
+    /* CLICK ANIMATION (activated on focus/click) */
+    .about-btn:focus .loader,
+    .about-btn.triggered .loader {
       stroke-dasharray: 100 0;
+      transition: stroke-dasharray 4s ease-out;
+      stroke: #80ffaa;
     }
-
-    .button-svg-wrapper:focus .done-check {
-      transition: stroke-dasharray 0.5s 9s ease-out;
+    .about-btn:focus span,
+    .about-btn.triggered span {
+      opacity: 0;
+      transition: opacity 0.2s 3.5s;
+    }
+    .about-btn:focus .cloud,
+    .about-btn.triggered .cloud {
+      stroke-dasharray: 100 0;
+      transition: stroke-dasharray 0.8s 4s;
+    }
+    .about-btn:focus .check,
+    .about-btn.triggered .check {
       stroke: #80ffaa;
       stroke-dasharray: 100 0;
+      transition: stroke-dasharray 0.5s 4.5s;
+    }
+    /* Hover effect */
+    .about-btn:hover {
+      transform: scale(1.02);
+      transition: transform 0.2s;
+    }
+    .about-btn:active {
+      transform: scale(0.98);
     }
 
-    /* footer and popup */
-    footer {
-      text-align: center;
-      padding: 18px;
-      margin-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.15);
-      font-size: 0.7rem;
-    }
-
+    /* ---------- POPUP ---------- */
     .popup-modal {
       display: none;
       position: fixed;
@@ -520,235 +482,387 @@
       justify-content: center;
       align-items: center;
     }
-
     .popup-card {
-      width: 340px;
-      background: rgba(20, 20, 35, 0.95);
-      backdrop-filter: blur(16px);
-      border-radius: 28px;
-      padding: 16px;
-      border: 1px solid rgba(255,255,255,0.2);
-      animation: fadeUp 0.4s;
+      width: 320px;
+      max-width: 90%;
+      height: 160px;
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      padding: 10px;
+      backdrop-filter: blur(10px);
+      animation: popupFadeIn 0.5s ease;
     }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
+    @keyframes popupFadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
     .card-wrapper {
       display: flex;
-      gap: 14px;
       align-items: center;
+      width: 100%;
+      height: 100%;
     }
-
-    .icon-cart-box {
-      background: rgba(255,255,240,0.1);
-      border-radius: 50%;
-      width: 48px;
-      height: 48px;
+    .card-icon {
+      width: 20%;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
     }
-
-    .product-price {
-      font-weight: bold;
-      color: #cba6ff;
+    .icon-cart-box {
+      background: rgba(26, 26, 26, 0.1);
+      width: 3em;
+      height: 3em;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-
-    .popup-button {
-      background: linear-gradient(135deg, #7b2cbf, #ff4ecd);
-      border: none;
-      border-radius: 40px;
-      padding: 6px 16px;
-      color: white;
-      font-weight: bold;
+    .popup-card .card-content {
+      width: 80%;
+      padding-left: 10px;
+    }
+    .card-title-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 8px;
+    }
+    .card-title {
+      width: 80%;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #1b1b1b;
+    }
+    .card-action {
+      width: 20%;
+      text-align: right;
+    }
+    .card-action svg {
       cursor: pointer;
+      fill: rgba(0, 0, 0, 0.4);
+      transition: 0.3s ease-in-out;
+    }
+    .card-action svg:hover {
+      fill: rgba(0, 0, 0, 0.8);
+    }
+    .product-name {
+      font-size: 0.75rem;
+      color: #2c2c2c;
+      margin-bottom: 5px;
+    }
+    .product-price {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 8px;
+    }
+    .popup-button {
+      position: relative;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+      padding: 0.4rem 1rem;
+      background: #050505;
+      border-radius: 9999px;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      margin-top: 6px;
+      justify-content: center;
+      color: #fff;
+      gap: 6px;
+      font-weight: bold;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      outline: none;
+      overflow: hidden;
+      font-size: 12px;
+      cursor: pointer;
+      height: 30px;
+    }
+    .popup-icon {
+      width: 15px;
+      height: 15px;
+      transition: all 0.3s ease-in-out;
+    }
+    .popup-button:hover {
+      transform: scale(1.05);
+      border-color: rgba(255, 255, 255, 0.6);
+    }
+    .popup-button:hover .popup-icon {
+      transform: translate(4px);
+    }
+    .popup-button::before {
+      content: "";
+      position: absolute;
+      width: 80px;
+      height: 100%;
+      background: linear-gradient(120deg, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0) 70%);
+      top: 0;
+      left: -80px;
+      opacity: 0.6;
+    }
+    .popup-button:hover::before {
+      animation: shine 1.5s ease-out infinite;
+    }
+    @keyframes shine {
+      0% { left: -80px; }
+      60% { left: 100%; }
+      to { left: 100%; }
     }
 
+    /* ---------- FOOTER & WARNING ---------- */
+    footer {
+      text-align: center;
+      padding: 10px;
+      margin-top: 10px;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.7rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .warning-message {
+      background: rgba(255, 0, 0, 0.15);
+      border: 1px solid rgba(255, 0, 0, 0.4);
+      border-radius: 5px;
+      padding: 5px 8px;
+      margin: 5px 0;
+      font-size: 0.7rem;
+      text-align: center;
+    }
     .mini-btn {
       position: fixed;
-      bottom: 18px;
-      right: 18px;
-      background: linear-gradient(120deg, #a55cff, #ff48b0);
-      padding: 10px 24px;
-      border-radius: 60px;
-      font-weight: bold;
-      color: white;
+      top: 8px;
+      right: 8px;
+      padding: 9px 16px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      color: #fff;
       text-decoration: none;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #7b5cff, #ff4ecd);
+      box-shadow: 0 6px 18px rgba(123, 92, 255, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
       z-index: 1000;
-      transition: 0.3s;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      animation: softPulse 2s infinite;
+      animation: pulse 2.5s infinite;
+      transition: 0.4s ease;
+    }
+    .mini-btn:hover {
+      transform: scale(1.06);
+      box-shadow: 0 10px 25px rgba(123, 92, 255, 0.65);
+    }
+    .mini-btn.hide {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-12px) scale(0.95);
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(255, 78, 205, 0.45); }
+      70% { box-shadow: 0 0 0 12px rgba(255, 78, 205, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 78, 205, 0); }
     }
 
-    @keyframes softPulse {
-      0% { box-shadow: 0 0 0 0 rgba(255, 80, 200, 0.5); }
-      70% { box-shadow: 0 0 0 10px rgba(255, 80, 200, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(255, 80, 200, 0); }
-    }
-
-    .mini-btn.hide { display: none; }
-
-    @media (max-width: 680px) {
-      .profile-display { width: 260px; height: 180px; }
-      .main-circle { width: 140px; height: 140px; left: calc(50% - 70px - 20px); }
-      .video-circle { width: 80px; height: 80px; left: calc(50% - 40px + 20px); animation: orbitRotate 9s infinite linear; transform-origin: center; }
-      @keyframes orbitRotate {
-        0% { transform: translateY(-50%) rotate(0deg) translateX(45px) rotate(0deg); }
-        100% { transform: translateY(-50%) rotate(360deg) translateX(45px) rotate(-360deg); }
-      }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container { padding: 5px 10px; }
+      .logo { font-size: 1.3rem; }
+      .cards-section { gap: 8px; }
+      .card, .services-card { width: 95%; max-width: 320px; height: 180px; }
+      .buttons-container { flex-direction: column; align-items: center; gap: 15px; }
+      .profile-display { width: 240px; height: 150px; }
+      .main-circle { width: 150px; height: 150px; left: calc(50% - 75px - 25px); }
+      .video-circle { width: 80px; height: 80px; left: calc(50% - 40px + 25px); }
       .agency-gradient-text { font-size: 1.8rem; }
-      .btn-container { width: 210px; height: 58px; }
-      .button-svg-wrapper { width: 190px; height: 56px; }
+      .about-btn { max-width: 340px; height: 68px; }
+      .about-btn span { font-size: 13px; }
+    }
+    @media (max-width: 480px) {
+      .agency-gradient-text { font-size: 1.5rem; }
+      .about-btn { max-width: 300px; height: 60px; }
+      .about-btn span { font-size: 11px; letter-spacing: 0.5px; }
+      .branding-word { font-size: 0.9rem; }
     }
   </style>
 </head>
 <body>
-<header>
-  <div class="logo"><span class="qb">QB</span><span class="agency">Agency</span></div>
-  <div></div>
-</header>
-<div class="container">
-  <section class="hero-section">
-    <div class="profile-display">
-      <div class="main-circle">
-        <img src="https://d1yei2z3i6k35z.cloudfront.net/13184094/696d0df4c0e5c_Gemini_Generated_Image_7vjmc7vjmc7vjmc7.png" alt="QB Agency">
+  <header>
+    <div class="logo"><span class="qb">QB</span><span class="agency">Agency</span></div>
+    <div class="nav-placeholder"></div>
+  </header>
+
+  <div class="container">
+    <section class="hero-section">
+      <div class="profile-display">
+        <div class="main-circle">
+          <img src="https://d1yei2z3i6k35z.cloudfront.net/13184094/696d0df4c0e5c_Gemini_Generated_Image_7vjmc7vjmc7vjmc7.png" alt="QB Agency Main Image">
+        </div>
+        <div class="video-circle">
+          <video autoplay muted loop playsinline>
+            <source src="https://d1yei2z3i6k35z.cloudfront.net/12037013/68894e0775ab5_Untitledvideo-MadewithClipchamp5.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
-      <div class="video-circle">
-        <video autoplay muted loop playsinline>
-          <source src="https://d1yei2z3i6k35z.cloudfront.net/12037013/68894e0775ab5_Untitledvideo-MadewithClipchamp5.mp4" type="video/mp4">
-        </video>
+      <div class="agency-gradient-text">QB Agency</div>
+    </section>
+
+    <div class="cards-section">
+      <div class="card">
+        <div class="card-bg"></div>
+        <div class="card-blob"></div>
+        <div class="card-content">
+          <h3>Our Services</h3>
+          <p>You'll Get</p>
+          <div class="gradient-line"></div>
+          <ul>
+            <li>High-Quality Facebook Ads</li>
+            <li>Google Ads with Precision</li>
+            <li>Luxury Landing Pages & Funnels</li>
+          </ul>
+          <p style="margin-top:5px;font-weight:600;color:#555;font-size:.75rem">Telegram @quicklygrow</p>
+        </div>
       </div>
     </div>
-    <div class="agency-gradient-text">QB Agency</div>
-  </section>
 
-  <div class="cards-section">
-    <div class="card">
+    <div class="buttons-container">
+      <button class="Btn-container" onclick="window.open('https://t.me/+y9odvJif3No3MjE1','_blank')">
+        <span class="inner-wrapper">
+          <span class="text"><p>JOIN NOW</p><p class="pro">QB Agency</p></span>
+          <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+              <path fill="currentColor" d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.8 169.9-41.7 196.8c-3.1 14-11.3 17.5-22.9 10.9l-63.3-46.7-30.5 29.4c-3.4 3.4-6.3 6.3-12.9 6.3l4.6-65.1 118.6-107c5.2-4.6-1.1-7.2-8.1-2.6L167.6 285.5l-62.8-19.6c-13.7-4.3-14-13.7 2.9-20.3l245.4-94.6c11.4-4.1 21.3 2.7 17.7 26.9z"/>
+            </svg>
+          </span>
+        </span>
+      </button>
+      <button class="Btn-container" onclick="window.open('https://t.me/quicklygrow','_blank')">
+        <span class="inner-wrapper">
+          <span class="text"><p>ENQUIRE NOW</p><p class="pro">ON Tg</p></span>
+          <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+              <path fill="currentColor" d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.8 169.9-41.7 196.8c-3.1 14-11.3 17.5-22.9 10.9l-63.3-46.7-30.5 29.4c-3.4 3.4-6.3 6.3-12.9 6.3l4.6-65.1 118.6-107c5.2-4.6-1.1-7.2-8.1-2.6L167.6 285.5l-62.8-19.6c-13.7-4.3-14-13.7 2.9-20.3l245.4-94.6c11.4-4.1 21.3 2.7 17.7 26.9z"/>
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+
+    <div class="card services-card">
       <div class="card-bg"></div>
       <div class="card-blob"></div>
       <div class="card-content">
-        <h3>Our Services</h3>
-        <p>You'll Get</p>
-        <ul>
-          <li>High-Quality Facebook Ads</li>
-          <li>Google Ads with Precision</li>
-          <li>Luxury Landing Pages & Funnels</li>
-        </ul>
-        <p style="margin-top:6px; font-size:0.7rem; font-weight:600;">📩 Telegram @quicklygrow</p>
+        <h3>Luxury Brand Marketing</h3>
+        <p>We provide premium marketing solutions for elite brands seeking exceptional growth and market dominance.</p>
+      </div>
+    </div>
+
+    <div class="warning-message">⚠️ We don't have any WhatsApp. Be aware. Our Telegram: @quicklygrow & backup: @growshal</div>
+
+    <div class="branding-card">
+      <div class="branding-content">
+        <div class="branding-word">QB Agency</div>
+        <div class="branding-word">#NO.1 Agency</div>
+        <div class="branding-word">QB Agency</div>
+      </div>
+    </div>
+
+    <!-- NEW REPLACED BUTTON: ABOUT BUTTON WITH GLOW/SVG ANIMATION -->
+    <div class="about-btn-wrapper">
+      <button class="about-btn" id="aboutGlowBtn" onclick="window.location.href='/know-more-about-qbagency023'">
+        <svg viewBox="0 0 300 80" preserveAspectRatio="none">
+          <rect class="border" x="4" y="4" width="292" height="72" pathLength="100" rx="22"></rect>
+          <rect class="loader" x="4" y="4" width="292" height="72" pathLength="100" rx="22"></rect>
+          <svg class="done-svg" x="0" y="0" width="300" height="80" viewBox="0 0 300 80">
+            <path class="cloud" pathLength="100" d="M 85,55 Q 70,55 62,48 54,41 54,31 54,23 60.5,17.5 67,12 77,11 80,5 88,2.5 96,0 105,0 117,0 125,6 133,12 136,22 146,23.5 153,30.5 160,37.5 160,47 160,54 154,59 148,64 137,64 Z"></path>
+            <path class="check" pathLength="100" d="M 92,36 L 102,46 L 121,27"></path>
+          </svg>
+        </svg>
+        <span>✨ ABOUT QB AGENCY ✨</span>
+      </button>
+    </div>
+
+    <footer>
+      <p>© 2025 QB Agency. All rights reserved. Luxury Marketing & Advertising Solutions.</p>
+      <p style="margin-top:5px;font-size:.65rem">We Provide You Luxury Advertising/Marketing</p>
+    </footer>
+  </div>
+
+  <!-- POPUP MODAL -->
+  <div class="popup-modal" id="popupModal">
+    <div class="popup-card">
+      <div class="card-wrapper">
+        <div class="card-icon">
+          <div class="icon-cart-box">
+            <svg xmlns="http://www.w3.org/2000/svg" height="18" width="18" viewBox="0 0 576 512">
+              <path fill="#000" d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="card-title-wrapper">
+            <span class="card-title">Start Your Growth Now</span>
+            <span class="card-action" onclick="closePopup()">
+              <svg xmlns="http://www.w3.org/2000/svg" height="12" width="12" viewBox="0 0 384 512">
+                <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+              </svg>
+            </span>
+          </div>
+          <div class="product-name">Meta Ads Monthly Setup Price</div>
+          <div class="product-price">₹20,000.00</div>
+          <button class="popup-button" onclick="window.location.href='/paying-ads-setup-charge021'">
+            Pay & Active Plan
+            <svg class="popup-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- DOUBLE BUTTON SECTION: hybrid stellar + telegram SVG & modern about button -->
-  <div class="double-button-row">
-    <!-- Stellar space button with telegram icon -->
-    <div class="btn-container" onclick="window.open('https://t.me/+y9odvJif3No3MjE1','_blank')">
-      <button id="space-btn" type="button" style="pointer-events: none;">
-        <svg class="telegram-icon-svg" viewBox="0 0 496 512" fill="currentColor">
-          <path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.8 169.9-41.7 196.8c-3.1 14-11.3 17.5-22.9 10.9l-63.3-46.7-30.5 29.4c-3.4 3.4-6.3 6.3-12.9 6.3l4.6-65.1 118.6-107c5.2-4.6-1.1-7.2-8.1-2.6L167.6 285.5l-62.8-19.6c-13.7-4.3-14-13.7 2.9-20.3l245.4-94.6c11.4-4.1 21.3 2.7 17.7 26.9z"/>
-        </svg>
-        <span>CHAT ON TELEGRAM</span>
-        <div class="star" style="left: 15%; top: 20%; animation-delay: 0.2s;"></div>
-        <div class="star" style="left: 70%; top: 35%; animation-delay: 1.2s;"></div>
-        <div class="star" style="left: 45%; top: 65%; animation-delay: 2.5s;"></div>
-        <div class="star" style="left: 85%; top: 15%; animation-delay: 0.9s;"></div>
-        <div class="shooting-star shooting-star-1"></div>
-        <div class="shooting-star shooting-star-2"></div>
-        <div class="shooting-star shooting-star-3"></div>
-        <div class="shooting-star shooting-star-4"></div>
-      </button>
-    </div>
+  <a href="/paying-ads-setup-charge021" class="mini-btn" id="miniBtn">ACTIVE PLAN</a>
 
-    <!-- Advanced SVG animated button (About QB Agency) -->
-    <button class="button-svg-wrapper" onclick="window.location.href='/know-more-about-qbagency023'">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80">
-        <rect class="border-svg" x="4" y="4" width="292" height="72" pathLength="100"></rect>
-        <rect class="loading-svg" x="4" y="4" width="292" height="72" pathLength="100"></rect>
-        <svg class="done-svg" x="0" y="0" width="300" height="80" viewBox="0 0 300 80">
-          <path class="done done-cloud" pathLength="100" d="M 85,55 Q 70,55 62,48 54,41 54,31 54,23 60.5,17.5 67,12 77,11 80,5 88,2.5 96,0 105,0 117,0 125,6 133,12 136,22 146,23.5 153,30.5 160,37.5 160,47 160,54 154,59 148,64 137,64 Z"></path>
-          <path class="done done-check" pathLength="100" d="M 92,36 L 102,46 L 121,27"></path>
-        </svg>
-      </svg>
-      <div class="txt-upload">✨ ABOUT QB AGENCY ✨</div>
-    </button>
-  </div>
+  <!-- Background pattern -->
+  <svg xmlns="http://www.w3.org/2000/svg" height="100%" width="100%" style="position:absolute; inset:0; z-index:0; pointer-events:none">
+    <defs>
+      <pattern id="diamondPattern" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+        <path d="M30 0 L45 15 L30 30 L15 15 Z" fill="rgba(255,255,255,.02)" stroke="rgba(255,255,255,.03)" stroke-width=".5"/>
+        <path d="M0 30 L15 45 L30 30 L15 15 Z" fill="rgba(255,255,255,.02)" stroke="rgba(255,255,255,.03)" stroke-width=".5"/>
+        <path d="M30 30 L45 45 L30 60 L15 45 Z" fill="rgba(255,255,255,.02)" stroke="rgba(255,255,255,.03)" stroke-width=".5"/>
+        <path d="M60 30 L45 45 L60 60 L75 45 Z" fill="rgba(255,255,255,.02)" stroke="rgba(255,255,255,.03)" stroke-width=".5"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#diamondPattern)"/>
+  </svg>
 
-  <!-- second enquiry button with star style but for TG enquiry -->
-  <div class="double-button-row" style="margin-top:-10px;">
-    <div class="btn-container" onclick="window.open('https://t.me/quicklygrow','_blank')">
-      <button id="space-btn2" type="button" style="pointer-events: none;">
-        <svg class="telegram-icon-svg" viewBox="0 0 496 512" fill="currentColor">
-          <path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.8 169.9-41.7 196.8c-3.1 14-11.3 17.5-22.9 10.9l-63.3-46.7-30.5 29.4c-3.4 3.4-6.3 6.3-12.9 6.3l4.6-65.1 118.6-107c5.2-4.6-1.1-7.2-8.1-2.6L167.6 285.5l-62.8-19.6c-13.7-4.3-14-13.7 2.9-20.3l245.4-94.6c11.4-4.1 21.3 2.7 17.7 26.9z"/>
-        </svg>
-        <span>ENQUIRE ON TG</span>
-        <div class="star" style="left: 22%; top: 45%; animation-delay: 1.8s;"></div>
-        <div class="star" style="left: 78%; top: 70%; animation-delay: 0.5s;"></div>
-        <div class="shooting-star shooting-star-1"></div>
-        <div class="shooting-star shooting-star-3"></div>
-      </button>
-    </div>
-  </div>
-
-  <div class="card services-card" style="width: 100%; max-width: 380px; margin: 10px auto;">
-    <div class="card-bg"></div>
-    <div class="card-blob"></div>
-    <div class="card-content">
-      <h3>Luxury Brand Marketing</h3>
-      <p>Premium marketing solutions for elite brands seeking exceptional growth & market dominance.</p>
-    </div>
-  </div>
-
-  <div class="warning-message">⚠️ We don't have any WhatsApp. Be aware. Our Telegram: @quicklygrow & backup: @growshal</div>
-
-  <div class="branding-card">
-    <div class="branding-content">
-      <div class="branding-word">QB Agency</div>
-      <div class="branding-word">#NO.1 Agency</div>
-      <div class="branding-word">QB Agency</div>
-    </div>
-  </div>
-
-  <footer>
-    <p>© 2025 QB Agency. All rights reserved. Luxury Marketing & Advertising Solutions.</p>
-    <p style="margin-top:6px;">We Provide You Elite Advertising/Marketing</p>
-  </footer>
-</div>
-
-<!-- popup -->
-<div class="popup-modal" id="popupModal">
-  <div class="popup-card">
-    <div class="card-wrapper">
-      <div class="card-icon"><div class="icon-cart-box"><i class="fas fa-gem" style="font-size: 26px; color:#cba6ff;"></i></div></div>
-      <div class="card-content" style="width:70%;">
-        <div class="card-title-wrapper"><span class="card-title" style="color:white;">Start Your Growth Now</span><span onclick="closePopup()" style="cursor:pointer; color:white;">✖</span></div>
-        <div class="product-name" style="color:#ddd;">Meta Ads Monthly Setup</div>
-        <div class="product-price">₹20,000.00</div>
-        <button class="popup-button" onclick="window.location.href='/paying-ads-setup-charge021'">Pay & Activate <i class="fas fa-arrow-right"></i></button>
-      </div>
-    </div>
-  </div>
-</div>
-<a href="/paying-ads-setup-charge021" class="mini-btn" id="miniBtn">⚡ ACTIVE PLAN</a>
-
-<script>
-  setTimeout(()=> document.getElementById('popupModal').style.display='flex', 5500);
-  function closePopup(){ document.getElementById('popupModal').style.display='none'; }
-  document.getElementById('popupModal').addEventListener('click',(e)=>{ if(e.target === document.getElementById('popupModal')) closePopup(); });
-
-  const mini = document.getElementById("miniBtn");
-  function cycleMini() { mini.classList.remove("hide"); setTimeout(()=> mini.classList.add("hide"), 7500); setTimeout(()=> cycleMini(), 11000); }
-  cycleMini();
-
-  // small fix: prevent default focus animation glitch on svg button
-  const svgBtn = document.querySelector('.button-svg-wrapper');
-  if(svgBtn) svgBtn.addEventListener('click', (e) => { e.currentTarget.focus(); });
-</script>
+  <script>
+    // Popup logic
+    setTimeout(() => { document.getElementById('popupModal').style.display = 'flex'; }, 6000);
+    function closePopup() { document.getElementById('popupModal').style.display = 'none'; }
+    document.getElementById('popupModal').addEventListener('click', (e) => { if (e.target === document.getElementById('popupModal')) closePopup(); });
+    
+    // Button press effects for TG buttons
+    document.querySelectorAll('.Btn-container').forEach(btn => {
+      btn.addEventListener('mousedown', () => btn.style.transform = 'scale(.95)');
+      btn.addEventListener('mouseup', () => btn.style.transform = 'scale(1)');
+      btn.addEventListener('mouseleave', () => btn.style.transform = 'scale(1)');
+    });
+    
+    // Mini-btn cycle
+    const miniBtn = document.getElementById("miniBtn");
+    function cycleMiniBtn() {
+      miniBtn.classList.remove("hide");
+      setTimeout(() => miniBtn.classList.add("hide"), 7000);
+      setTimeout(() => miniBtn.classList.remove("hide"), 10000);
+    }
+    cycleMiniBtn();
+    setInterval(cycleMiniBtn, 13000);
+    
+    // Optional: ensure about button animation resets on each click (no extra class needed, but we keep nice)
+    const aboutBtn = document.getElementById('aboutGlowBtn');
+    if (aboutBtn) {
+      aboutBtn.addEventListener('click', function(e) {
+        // just let the onclick redirect, but add a tiny class to show animation feedback
+        this.classList.add('triggered');
+        setTimeout(() => { this.classList.remove('triggered'); }, 6000);
+      });
+    }
+  </script>
 </body>
 </html>
