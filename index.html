@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>QB Agency | Elite Marketing & Advertising</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: url('https://files.123freevectors.com/wp-content/original/119562-purple-and-white-abstract-background-design.jpg') center/cover fixed;
+      color: #fff;
+      position: relative;
+      overflow-x: hidden;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: -1;
+    }
+
+    /* header */
+    header {
+      width: 100%;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      position: relative;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-family: 'Cinzel', serif;
+      display: flex;
+      gap: 6px;
+    }
+
+    .logo .qb {
+      color: #e0d6ff;
+      text-shadow: 0 0 12px rgba(192, 192, 255, 0.6);
+    }
+
+    .logo .agency {
+      color: #b77cff;
+      text-shadow: 0 0 10px rgba(147, 112, 219, 0.7);
+    }
+
+    /* main container */
+    .container {
+      max-width: 1250px;
+      margin: 0 auto;
+      padding: 10px 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* PROFILE SECTION with orbiting video */
+    .hero-section {
+      text-align: center;
+      margin: 8px 0 5px;
+    }
+
+    .profile-display {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      margin: 5px auto 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* main circle (photo) */
+    .main-circle {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      overflow: hidden;
+      position: absolute;
+      left: calc(50% - 85px - 30px);
+      top: 50%;
+      transform: translateY(-50%);
+      border: 3px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 0 35px rgba(255, 255, 255, 0.3);
+      z-index: 2;
+      background: rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .main-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* orbiting video circle */
+    .video-circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      position: absolute;
+      left: calc(50% - 50px + 35px);
+      top: 50%;
+      transform: translateY(-50%);
+      border: 3px solid #b77cff;
+      box-shadow: 0 0 30px rgba(147, 112, 219, 0.6);
+      z-index: 3;
+      animation: orbitRotate 9s infinite linear, floatGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes orbitRotate {
+      0% {
+        transform: translateY(-50%) rotate(0deg) translateX(55px) rotate(0deg);
+      }
+      100% {
+        transform: translateY(-50%) rotate(360deg) translateX(55px) rotate(-360deg);
+      }
+    }
+
+    @keyframes floatGlow {
+      0%, 100% { filter: brightness(1) drop-shadow(0 0 5px #b77cff); }
+      50% { filter: brightness(1.1) drop-shadow(0 0 18px #d9a7ff); }
+    }
+
+    .video-circle video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .agency-gradient-text {
+      font-family: 'Cinzel', serif;
+      font-size: 2.4rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin: 15px 0 5px;
+      background: linear-gradient(90deg, #ffffff, #cba6ff, #9b59b6, #ffffff, #cba6ff);
+      background-size: 350% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientFlow 7s linear infinite;
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% center; }
+      100% { background-position: 350% center; }
+    }
+
+    /* cards */
+    .cards-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 18px;
+      margin: 20px 0;
+    }
+
+    .card {
+      position: relative;
+      width: 310px;
+      height: 210px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+    }
+
+    .card-bg {
+      position: absolute;
+      inset: 2px;
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 18px;
+      z-index: 1;
+    }
+
+    .card-blob {
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      background: rgba(147, 112, 219, 0.2);
+      filter: blur(25px);
+      border-radius: 50%;
+      animation: blobMove 12s infinite alternate;
+      z-index: 0;
+    }
+
+    @keyframes blobMove {
+      0% { transform: translate(-30%, -30%); }
+      100% { transform: translate(70%, 70%); }
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 3;
+      color: #1e1e2a;
+      padding: 12px;
+      text-align: center;
+    }
+
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 800;
+      color: #2c1b4e;
+      margin-bottom: 6px;
+    }
+
+    .card ul {
+      list-style: none;
+      text-align: left;
+      display: inline-block;
+      margin-top: 6px;
+    }
+
+    .card li {
+      font-size: 0.8rem;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+    }
+
+    .card li::before {
+      content: "✦";
+      margin-right: 8px;
+      color: #9b59b6;
+    }
+
+    .warning-message {
+      background: rgba(255, 60, 60, 0.2);
+      backdrop-filter: blur(8px);
+      border-radius: 40px;
+      padding: 8px 16px;
+      font-size: 0.7rem;
+      text-align: center;
+      margin: 12px auto;
+      width: fit-content;
+      border: 1px solid rgba(255, 80, 80, 0.4);
+    }
+
+    .branding-card {
+      width: 100%;
+      max-width: 500px;
+      margin: 15px auto;
+      height: 52px;
+      background: rgba(230, 225, 245, 0.5);
+      backdrop-filter: blur(12px);
+      border-radius: 40px;
+      overflow: hidden;
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.05), 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .branding-content {
+      display: flex;
+      width: 300%;
+      height: 100%;
+      animation: slideBrand 8s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .branding-word {
+      width: 33.33%;
+      text-align: center;
+      font-weight: 700;
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      color: #2c1b4e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes slideBrand {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(0); }
+      35% { transform: translateX(-33.33%); }
+      70% { transform: translateX(-33.33%); }
+      80% { transform: translateX(-66.66%); }
+      100% { transform: translateX(-66.66%); }
+    }
+
+    /* ========== NEW BUTTON CONTAINER (hybrid design) ========== */
+    .double-button-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin: 30px 0 20px;
+    }
+
+    /* Stellar button style (original request) */
+    .btn-container {
+      width: 240px;
+      height: 68px;
+      position: relative;
+      overflow: visible;
+      cursor: pointer;
+      transition: transform 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+    }
+
+    .btn-container:hover {
+      transform: scale(1.05);
+    }
+
+    .btn-container:active {
+      transform: scale(0.98);
+    }
+
+    .btn-container::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 18px;
+      z-index: -1;
+      background: linear-gradient(80deg, #ffcbf2, #ec38bc, #7303c0, #03001e);
+      filter: blur(25px);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      border-radius: 20px;
+    }
+
+    .btn-container:hover::after {
+      opacity: 1;
+    }
+
+    button#space-btn {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      border: 0;
+      outline: 0;
+      border-radius: 20px;
+      background: linear-gradient(95deg, #03001e, #7303c0, #ec38bc, #ffcbf2);
+      background-size: 200% auto;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      transition: all 0.2s;
+    }
+
+    button#space-btn span {
+      color: white;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      font-family: 'Montserrat', sans-serif;
+      z-index: 3;
+    }
+
+    .telegram-icon-svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
+      transition: transform 0.2s;
+      z-index: 3;
+    }
+
+    button#space-btn div.star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background-color: white;
+      border-radius: 50%;
+      animation: blinkStar 2s infinite ease-in-out;
+      pointer-events: none;
+    }
+
+    @keyframes blinkStar {
+      0% { opacity: 0; transform: scale(0.5); box-shadow: 0 0 0px white; }
+      50% { opacity: 1; transform: scale(1); box-shadow: 0 0 10px 2px white; }
+      100% { opacity: 0; transform: scale(0.5); box-shadow: 0 0 0px white; }
+    }
+
+    button#space-btn div.shooting-star {
+      width: 70px;
+      height: 2px;
+      position: absolute;
+      background: linear-gradient(90deg, #ffffffff, #ffffff00);
+      border-radius: 50%;
+      transform: rotate(-35deg);
+      opacity: 0;
+    }
+
+    @keyframes fallingStar1 {
+      0% { top: -10px; left: 200px; opacity: 1; }
+      100% { top: 200px; left: -30px; opacity: 1; }
+    }
+    @keyframes fallingStar2 {
+      0% { top: -10px; left: 140px; opacity: 1; }
+      100% { top: 200px; left: -80px; opacity: 1; }
+    }
+    @keyframes fallingStar3 {
+      0% { top: -10px; left: 80px; opacity: 1; }
+      100% { top: 200px; left: -130px; opacity: 1; }
+    }
+    @keyframes fallingStar4 {
+      0% { top: -10px; left: 20px; opacity: 1; }
+      100% { top: 200px; left: -190px; opacity: 1; }
+    }
+
+    button#space-btn div.shooting-star-1 { animation: fallingStar1 4s 6s infinite; }
+    button#space-btn div.shooting-star-2 { animation: fallingStar2 2.5s 10s infinite; }
+    button#space-btn div.shooting-star-3 { animation: fallingStar3 6s 18s infinite; }
+    button#space-btn div.shooting-star-4 { animation: fallingStar4 3.8s 7s infinite; }
+
+    /* Modern SVG button (about) */
+    .button-svg-wrapper {
+      position: relative;
+      width: 220px;
+      height: 64px;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    .button-svg-wrapper svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .border-svg {
+      width: 100%;
+      height: 100%;
+      stroke: #ffffffcc;
+      stroke-width: 2px;
+      fill: rgba(0, 0, 0, 0.2);
+      rx: 1.2em;
+      ry: 1.2em;
+      stroke-dasharray: 30;
+      animation: dashMove 6s linear infinite;
+      transition: fill 0.3s;
+    }
+
+    .button-svg-wrapper:hover .border-svg {
+      fill: rgba(255, 255, 255, 0.15);
+      stroke: #cba6ff;
+    }
+
+    @keyframes dashMove {
+      0% { stroke-dashoffset: 120; }
+      100% { stroke-dashoffset: 0; }
+    }
+
+    .loading-svg {
+      stroke: #b77cff;
+      stroke-width: 2.5px;
+      fill: none;
+      rx: 1.2em;
+      ry: 1.2em;
+      stroke-dasharray: 0 100;
+      transition: stroke 0.1s;
+    }
+
+    .button-svg-wrapper:focus .loading-svg {
+      transition: stroke-dasharray 8s 0.3s ease-out;
+      stroke-dasharray: 100 0;
+      stroke: #80ffaa;
+    }
+
+    .txt-upload {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      font-family: 'Cinzel', serif;
+      color: white;
+      letter-spacing: 0.5px;
+      background: transparent;
+      pointer-events: none;
+      gap: 6px;
+    }
+
+    .button-svg-wrapper:focus .txt-upload {
+      opacity: 0;
+      transition: opacity 0.2s 7.5s;
+    }
+
+    .done-cloud, .done-check {
+      fill: none;
+      stroke: white;
+      stroke-width: 2;
+      stroke-dasharray: 0 100;
+    }
+
+    .button-svg-wrapper:focus .done-cloud {
+      transition: stroke-dasharray 0.8s 8.2s ease-out;
+      stroke-dasharray: 100 0;
+    }
+
+    .button-svg-wrapper:focus .done-check {
+      transition: stroke-dasharray 0.5s 9s ease-out;
+      stroke: #80ffaa;
+      stroke-dasharray: 100 0;
+    }
+
+    /* footer and popup */
+    footer {
+      text-align: center;
+      padding: 18px;
+      margin-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      font-size: 0.7rem;
+    }
+
+    .popup-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup-card {
+      width: 340px;
+      background: rgba(20, 20, 35, 0.95);
+      backdrop-filter: blur(16px);
+      border-radius: 28px;
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,0.2);
+      animation: fadeUp 0.4s;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card-wrapper {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .icon-cart-box {
+      background: rgba(255,255,240,0.1);
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-price {
+      font-weight: bold;
+      color: #cba6ff;
+    }
+
+    .popup-button {
+      background: linear-gradient(135deg, #7b2cbf, #ff4ecd);
+      border: none;
+      border-radius: 40px;
+      padding: 6px 16px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .mini-btn {
+      position: fixed;
+      bottom: 18px;
+      right: 18px;
+      background: linear-gradient(120deg, #a55cff, #ff48b0);
+      padding: 10px 24px;
+      border-radius: 60px;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+      z-index: 1000;
+      transition: 0.3s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      animation: softPulse 2s infinite;
+    }
+
+    @keyframes softPulse {
+      0% { box-shadow: 0 0 0 0 rgba(255, 80, 200, 0.5); }
+      70% { box-shadow: 0 0 0 10px rgba(255, 80, 200, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 80, 200, 0); }
+    }
+
+    .mini-btn.hide { display: none; }
+
+    @media (max-width: 680px) {
+      .profile-display { width: 260px; height: 180px; }
+      .main-circle { width: 140px; height: 140px; left: calc(50% - 70px - 20px); }
+      .video-circle { width: 80px; height: 80px; left: calc(50% - 40px + 20px); animation: orbitRotate 9s infinite linear; transform-origin: center; }
+      @keyframes orbitRotate {
+        0% { transform: translateY(-50%) rotate(0deg) translateX(45px) rotate(0deg); }
+        100% { transform: translateY(-50%) rotate(360deg) translateX(45px) rotate(-360deg); }
+      }
+      .agency-gradient-text { font-size: 1.8rem; }
+      .btn-container { width: 210px; height: 58px; }
+      .button-svg-wrapper { width: 190px; height: 56px; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo"><span class="qb">QB</span><span class="agency">Agency</span></div>
+  <div></div>
+</header>
+<div class="container">
+  <section class="hero-section">
+    <div class="profile-display">
+      <div class="main-circle">
+        <img src="https://d1yei2z3i6k35z.cloudfront.net/13184094/696d0df4c0e5c_Gemini_Generated_Image_7vjmc7vjmc7vjmc7.png" alt="QB Agency">
+      </div>
+      <div class="video-circle">
+        <video autoplay muted loop playsinline>
+          <source src="https://d1yei2z3i6k35z.cloudfront.net/12037013/68894e0775ab5_Untitledvideo-MadewithClipchamp5.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <div class="agency-gradient-text">QB Agency</div>
+  </section>
+
+  <div class="cards-section">
+    <div class="card">
+      <div class="card-bg"></div>
+      <div class="card-blob"></div>
+      <div class="card-content">
+        <h3>Our Services</h3>
+        <p>You'll Get</p>
+        <ul>
+          <li>High-Quality Facebook Ads</li>
+          <li>Google Ads with Precision</li>
+          <li>Luxury Landing Pages & Funnels</li>
+        </ul>
+        <p style="margin-top:6px; font-size:0.7rem; font-weight:600;">📩 Telegram @quicklygrow</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DOUBLE BUTTON SECTION: hybrid stellar + telegram SVG & modern about button -->
+  <div class="double-button-row">
+    <!-- Stellar space button with telegram icon -->
+    <div class="btn-container" onclick="window.open('https://t.me/+y9odvJif3No3MjE1','_blank')">
+      <button id="space-btn" type="button" style="pointer-events: none;">
+        <svg class="telegram-icon-svg" viewBox="0 0 496 512" fill="currentColor">
+          <path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.8 169.9-41.7 196.8c-3.1 14-11.3 17.5-22.9 10.9l-63.3-46.7-30.5 29.4c-3.4 3.4-6.3 6.3-12.9 6.3l4.6-65.1 118.6-107c5.2-4.6-1.1-7.2-8.1-2.6L167.6 285.5l-62.8-19.6c-13.7-4.3-14-13.7 2.9-20.3l245.4-94.6c11.4-4.1 21.3 2.7 17.7 26.9z"/>
+        </svg>
+        <span>CHAT ON TELEGRAM</span>
+        <div class="star" style="left: 15%; top: 20%; animation-delay: 0.2s;"></div>
+        <div class="star" style="left: 70%; top: 35%; animation-delay: 1.2s;"></div>
+        <div class="star" style="left: 45%; top: 65%; animation-delay: 2.5s;"></div>
+        <div class="star" style="left: 85%; top: 15%; animation-delay: 0.9s;"></div>
+        <div class="shooting-star shooting-star-1"></div>
+        <div class="shooting-star shooting-star-2"></div>
+        <div class="shooting-star shooting-star-3"></div>
+        <div class="shooting-star shooting-star-4"></div>
+      </button>
+    </div>
+
+    <!-- Advanced SVG animated button (About QB Agency) -->
+    <button class="button-svg-wrapper" onclick="window.location.href='/know-more-about-qbagency023'">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80">
+        <rect class="border-svg" x="4" y="4" width="292" height="72" pathLength="100"></rect>
+        <rect class="loading-svg" x="4" y="4" width="292" height="72" pathLength="100"></rect>
+        <svg class="done-svg" x="0" y="0" width="300" height="80" viewBox="0 0 300 80">
+          <path class="done done-cloud" pathLength="100" d="M 85,55 Q 70,55 62,48 54,41 54,31 54,23 60.5,17.5 67,12 77,11 80,5 88,2.5 96,0 105,0 117,0 125,6 133,12 136,22 146,23.5 153,30.5 160,37.5 160,47 160,54 154,59 148,64 137,64 Z"></path>
+          <path class="done done-check" pathLength="100" d="M 92,36 L 102,46 L 121,27"></path>
+        </svg>
+      </svg>
+      <div class="txt-upload">✨ ABOUT QB AGENCY ✨</div>
+    </button>
+  </div>
+
+  <!-- second enquiry button with star style but for TG enquiry -->
+  <div class="double-button-row" style="margin-top:-10px;">
+    <div class="btn-container" onclick="window.open('https://t.me/quicklygrow','_blank')">
+      <button id="space-btn2" type="button" style="pointer-events: none;">
+        <svg class="telegram-icon-svg" viewBox="0 0 496 512" fill="currentColor">
+          <path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.8 169.9-41.7 196.8c-3.1 14-11.3 17.5-22.9 10.9l-63.3-46.7-30.5 29.4c-3.4 3.4-6.3 6.3-12.9 6.3l4.6-65.1 118.6-107c5.2-4.6-1.1-7.2-8.1-2.6L167.6 285.5l-62.8-19.6c-13.7-4.3-14-13.7 2.9-20.3l245.4-94.6c11.4-4.1 21.3 2.7 17.7 26.9z"/>
+        </svg>
+        <span>ENQUIRE ON TG</span>
+        <div class="star" style="left: 22%; top: 45%; animation-delay: 1.8s;"></div>
+        <div class="star" style="left: 78%; top: 70%; animation-delay: 0.5s;"></div>
+        <div class="shooting-star shooting-star-1"></div>
+        <div class="shooting-star shooting-star-3"></div>
+      </button>
+    </div>
+  </div>
+
+  <div class="card services-card" style="width: 100%; max-width: 380px; margin: 10px auto;">
+    <div class="card-bg"></div>
+    <div class="card-blob"></div>
+    <div class="card-content">
+      <h3>Luxury Brand Marketing</h3>
+      <p>Premium marketing solutions for elite brands seeking exceptional growth & market dominance.</p>
+    </div>
+  </div>
+
+  <div class="warning-message">⚠️ We don't have any WhatsApp. Be aware. Our Telegram: @quicklygrow & backup: @growshal</div>
+
+  <div class="branding-card">
+    <div class="branding-content">
+      <div class="branding-word">QB Agency</div>
+      <div class="branding-word">#NO.1 Agency</div>
+      <div class="branding-word">QB Agency</div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 QB Agency. All rights reserved. Luxury Marketing & Advertising Solutions.</p>
+    <p style="margin-top:6px;">We Provide You Elite Advertising/Marketing</p>
+  </footer>
+</div>
+
+<!-- popup -->
+<div class="popup-modal" id="popupModal">
+  <div class="popup-card">
+    <div class="card-wrapper">
+      <div class="card-icon"><div class="icon-cart-box"><i class="fas fa-gem" style="font-size: 26px; color:#cba6ff;"></i></div></div>
+      <div class="card-content" style="width:70%;">
+        <div class="card-title-wrapper"><span class="card-title" style="color:white;">Start Your Growth Now</span><span onclick="closePopup()" style="cursor:pointer; color:white;">✖</span></div>
+        <div class="product-name" style="color:#ddd;">Meta Ads Monthly Setup</div>
+        <div class="product-price">₹20,000.00</div>
+        <button class="popup-button" onclick="window.location.href='/paying-ads-setup-charge021'">Pay & Activate <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+<a href="/paying-ads-setup-charge021" class="mini-btn" id="miniBtn">⚡ ACTIVE PLAN</a>
+
+<script>
+  setTimeout(()=> document.getElementById('popupModal').style.display='flex', 5500);
+  function closePopup(){ document.getElementById('popupModal').style.display='none'; }
+  document.getElementById('popupModal').addEventListener('click',(e)=>{ if(e.target === document.getElementById('popupModal')) closePopup(); });
+
+  const mini = document.getElementById("miniBtn");
+  function cycleMini() { mini.classList.remove("hide"); setTimeout(()=> mini.classList.add("hide"), 7500); setTimeout(()=> cycleMini(), 11000); }
+  cycleMini();
+
+  // small fix: prevent default focus animation glitch on svg button
+  const svgBtn = document.querySelector('.button-svg-wrapper');
+  if(svgBtn) svgBtn.addEventListener('click', (e) => { e.currentTarget.focus(); });
+</script>
+</body>
+</html>
